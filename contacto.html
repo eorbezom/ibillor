@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>iBillor | Disciplina y Calistenia</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-black text-white">
+
+  <!-- Navbar -->
+  <nav class="bg-black/95 backdrop-blur-md fixed w-full z-50 border-b border-red-600">
+    <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+      <div class="flex items-center gap-3">        
+        <h1 class="text-3xl font-bold tracking-tight">iBILLOR</h1>
+      </div>
+      
+      <div class="hidden md:flex items-center gap-9 text-lg font-medium">
+        <a href="index.html" class="nav-link">Inicio</a>
+        <a href="#sobremi" class="nav-link">Sobre Mí</a>
+        <a href="#cursos" class="nav-link">Cursos</a>
+        <a href="#productos" class="nav-link">Productos</a>        
+        <a href="contacto.html" class="nav-link">Contacto</a>
+      </div>
+
+      <button id="menuBtn" class="md:hidden text-3xl">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+<!-- ===================== FORMULARIO DE CONTACTO ===================== -->
+<section class="pt-32 pb-24 bg-[#0a0a0a]">
+  <div class="max-w-3xl mx-auto px-6">
+    <div class="text-center mb-12">
+      <h1 class="text-5xl font-bold mb-4">Contáctame</h1>
+      <p class="text-gray-400 text-lg">Estoy listo para responderte</p>
+    </div>
+
+    <div class="bg-zinc-900 rounded-3xl p-10 shadow-2xl">
+      <form id="contactForm" class="space-y-8">
+        
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <label class="block text-sm text-gray-400 mb-2">Nombre</label>
+            <input type="text" id="nombre" required 
+                   class="w-full bg-black border border-zinc-700 rounded-2xl px-6 py-4 focus:border-red-600 outline-none transition">
+          </div>
+          <div>
+            <label class="block text-sm text-gray-400 mb-2">Apellido</label>
+            <input type="text" id="apellido" required 
+                   class="w-full bg-black border border-zinc-700 rounded-2xl px-6 py-4 focus:border-red-600 outline-none transition">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-sm text-gray-400 mb-2">Correo Electrónico</label>
+          <input type="email" id="email" required 
+                 class="w-full bg-black border border-zinc-700 rounded-2xl px-6 py-4 focus:border-red-600 outline-none transition">
+        </div>
+
+        <div>
+          <label class="block text-sm text-gray-400 mb-2">Número de Celular</label>
+          <input type="tel" id="celular" required 
+                 class="w-full bg-black border border-zinc-700 rounded-2xl px-6 py-4 focus:border-red-600 outline-none transition"
+                 placeholder="+51 999 999 999"
+                 pattern="[0-9+ ]+"
+                 oninput="this.value = this.value.replace(/[^0-9+]/g, '')"
+                 maxlength="15">
+        </div>
+
+        <div>
+          <label class="block text-sm text-gray-400 mb-2">Mensaje</label>
+          <textarea id="mensaje" rows="6" 
+                    class="w-full bg-black border border-zinc-700 rounded-3xl px-6 py-4 focus:border-red-600 outline-none resize-y transition"
+                    placeholder="¿En qué puedo ayudarte?"></textarea>
+        </div>
+
+        <!-- Términos y Condiciones -->
+        <div class="flex items-start gap-3">
+          <input type="checkbox" id="terminos" required class="mt-1 w-5 h-5 accent-red-600">
+          <label for="terminos" class="text-sm text-gray-400 leading-relaxed">
+            Acepto los <a href="#" id="verTerminos" class="text-red-500 hover:underline font-medium">Términos y Condiciones de Uso de mis datos</a>
+          </label>
+        </div>
+
+        <button type="submit" id="submitBtn"
+                class="w-full bg-red-600 hover:bg-red-700 py-5 rounded-2xl font-bold text-lg transition transform hover:scale-[1.02]">
+          Enviar Mensaje
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== MODAL TÉRMINOS Y CONDICIONES ===================== -->
+<div id="modalTerminos" class="hidden fixed inset-0 bg-black/80 flex items-center justify-center z-[100]">
+  <div class="bg-zinc-900 rounded-3xl max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+    <div class="p-8">
+      <h2 class="text-3xl font-bold mb-6 text-white">Términos y Condiciones de Uso de Datos Personales</h2>
+      
+      <div class="prose prose-invert text-gray-300 leading-relaxed space-y-5">
+        
+        <p>Al marcar la casilla de aceptación y enviar este formulario, usted declara haber leído, comprendido y aceptado expresamente los siguientes términos y condiciones respecto al tratamiento de sus datos personales:</p>
+        
+        <ol class="list-decimal pl-5 space-y-4">
+          <li><strong>Responsable del Tratamiento</strong><br>
+              iBillor, con domicilio en Lima, Perú, es el único responsable del tratamiento de los datos personales que usted proporcione a través de este formulario.</li>
+          
+          <li><strong>Datos Recopilados</strong><br>
+              Se recopilarán los siguientes datos personales: nombre completo, correo electrónico y número de teléfono celular. Estos datos son proporcionados de forma voluntaria por usted.</li>
+          
+          <li><strong>Finalidad del Tratamiento</strong><br>
+              Sus datos personales serán utilizados únicamente para:<br>
+              • Responder a su mensaje o consulta.<br>
+              • Mantener comunicación directa y personalizada con usted.<br>
+              • Enviarle información relevante sobre cursos, productos, promociones, ofertas y novedades relacionadas con iBillor.</li>
+          
+          <li><strong>Plazo de Conservación</strong><br>
+              Usted acepta expresamente que sus datos personales sean conservados por un período de <strong>50 años</strong>, contados a partir de la fecha de envío del formulario, con el fin de mantener un historial de comunicaciones y posibles futuras interacciones.</li>
+          
+          <li><strong>Derechos del Titular (ARCO)</strong><br>
+              En cualquier momento usted podrá solicitar el acceso, rectificación, cancelación, oposición o eliminación de sus datos. Para ello deberá enviar una solicitud formal por correo electrónico, adjuntando copia de su documento de identidad (DNI o pasaporte). El Responsable se compromete a atender dicha solicitud en un plazo máximo de 30 días.</li>
+          
+          <li><strong>Comunicaciones Comerciales</strong><br>
+              Al aceptar estos términos, usted autoriza expresamente a iBillor a enviarle por correo electrónico o mensaje de texto información sobre promociones, ofertas, lanzamientos de productos y cursos.</li>
+          
+          <li><strong>Confidencialidad</strong><br>
+              Sus datos personales <strong>no serán vendidos, cedidos, compartidos ni transferidos</strong> a terceros bajo ninguna circunstancia. Solo iBillor tendrá acceso a esta información.</li>
+          
+          <li><strong>Seguridad de los Datos</strong><br>
+              Se implementan medidas técnicas y organizativas adecuadas para proteger sus datos contra accesos no autorizados, pérdida, alteración o divulgación indebida, conforme a la Ley N° 29733 de Protección de Datos Personales.</li>
+          
+          <li><strong>Aceptación Voluntaria</strong><br>
+              El envío de este formulario y la marcación de la casilla de aceptación implican su consentimiento libre, específico, informado e inequívoco para el tratamiento de sus datos personales.</li>
+          
+          <li><strong>Modificaciones</strong><br>
+              iBillor se reserva el derecho de modificar estos Términos y Condiciones en cualquier momento. Cualquier modificación será comunicada oportunamente.</li>
+        </ol>
+
+        <p class="text-sm text-gray-400 pt-4 border-t border-zinc-700">
+          Al enviar este formulario usted declara ser mayor de edad y tener plena capacidad legal para aceptar estos términos y condiciones.
+        </p>
+      </div>
+
+      <button id="cerrarModal" 
+              class="mt-8 w-full bg-zinc-800 hover:bg-zinc-700 py-4 rounded-2xl font-semibold transition">
+        Entendido
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== MODAL ÉXITO ===================== -->
+<div id="modalExito" class="hidden fixed inset-0 bg-black/80 flex items-center justify-center z-[100]">
+  <div class="bg-zinc-900 rounded-3xl max-w-md w-full mx-4 p-10 text-center">
+    <div class="text-green-500 text-7xl mb-6">✓</div>
+    <h2 class="text-3xl font-bold mb-4">¡Mensaje Enviado!</h2>
+    <p class="text-gray-300 text-lg leading-relaxed">
+      Gracias por contactarte conmigo.<br>
+      En breve te responderemos.
+    </p>
+    <button id="cerrarExito" 
+            class="mt-8 w-full bg-red-600 hover:bg-red-700 py-4 rounded-2xl font-semibold transition">
+      Cerrar
+    </button>
+  </div>
+</div>
+
+ <!-- Footer Premium -->
+<footer class="bg-[#0a0a0a] border-t border-zinc-800 pt-20 pb-12">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid md:grid-cols-4 gap-12">
+      
+      <!-- Logo y Descripción -->
+      <div>
+        <div class="flex items-center gap-3 mb-6">          
+          <h2 class="text-4xl font-bold tracking-tight">iBILLOR</h2>
+        </div>
+        <p class="text-gray-400 max-w-xs">
+          Disciplina, Calistenia y Mentalidad Fuerte.<br>
+          Transformando cuerpos y mentes.
+        </p>
+      </div>
+
+      <!-- Enlaces Rápidos -->
+      <div>
+        <h3 class="text-red-500 font-semibold text-lg mb-6">Explorar</h3>
+        <ul class="space-y-4 text-gray-400">
+          <li><a href="#inicio" class="hover:text-white transition">Inicio</a></li>
+          <li><a href="#sobremi" class="hover:text-white transition">Sobre Mí</a></li>
+          <li><a href="#cursos" class="hover:text-white transition">Cursos</a></li>
+          <li><a href="#productos" class="hover:text-white transition">Productos</a></li>
+        </ul>
+      </div>
+
+      <!-- Legal -->
+      <div>
+        <h3 class="text-red-500 font-semibold text-lg mb-6">Legal</h3>
+        <ul class="space-y-4 text-gray-400">
+          <li><a href="#" class="hover:text-white transition">Política de Privacidad</a></li>
+          <li><a href="#" class="hover:text-white transition">Términos y Condiciones</a></li>
+          <li><a href="#" class="hover:text-white transition">Derechos de Autor</a></li>
+        </ul>
+      </div>
+
+      <!-- Redes Sociales -->
+      <div>
+        <h3 class="text-red-500 font-semibold text-lg mb-6">Sígueme</h3>
+        <div class="flex gap-6 text-4xl mb-8">
+          <a href="#" class="hover:text-red-500 transition"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="hover:text-red-500 transition"><i class="fab fa-youtube"></i></a>
+          <a href="https://www.tiktok.com/@larryibillor" class="hover:text-red-500 transition"><i class="fab fa-tiktok"></i></a>
+        </div>
+        <p class="text-sm text-gray-500">
+          
+          
+        </p>
+      </div>
+    </div>
+
+    <!-- Línea final -->
+    <div class="border-t border-zinc-800 mt-16 pt-8 text-center text-sm text-gray-500">
+       © 2026 iBillor.
+          Todos los derechos reservados.
+    </div>
+  </div>
+</footer>
+  <!-- Cursos (mantengo el anterior por ahora) -->
+  <!-- ... tu sección de cursos actual ... -->
+
+  <script src="js/script.js"></script>
+</body>
+</html>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

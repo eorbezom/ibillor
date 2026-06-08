@@ -39,7 +39,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const verTerminos = document.getElementById('verTerminos');
   const modalTerminos = document.getElementById('modalTerminos');
   const cerrarModal = document.getElementById('cerrarModal');
+  const verTerminosFooter = document.getElementById('verTerminosFooter');
 
+if (verTerminosFooter && modalTerminos) {
+  verTerminosFooter.addEventListener('click', (e) => {
+    e.preventDefault();
+    modalTerminos.classList.remove('hidden');
+  });
+}
   if (verTerminos && modalTerminos) {
     verTerminos.addEventListener('click', (e) => {
       e.preventDefault();

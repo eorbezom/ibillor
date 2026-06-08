@@ -64,33 +64,28 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Formulario
-  const contactForm = document.getElementById('contactForm');
+ // Formulario Formspree
+const contactForm = document.getElementById('contactForm');
 
-  if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
+if (contactForm) {
+
+  contactForm.addEventListener('submit', function(e) {
+
+    const terminos = document.getElementById('terminos').checked;
+
+    if (!terminos) {
       e.preventDefault();
+      alert("Debes aceptar los Términos y Condiciones para enviar el mensaje.");
+      return;
+    }
 
-      const terminos = document.getElementById('terminos').checked;
+    const btn = document.getElementById('submitBtn');
+    btn.textContent = "Enviando...";
+    btn.disabled = true;
 
-      if (!terminos) {
-        alert("Debes aceptar los Términos y Condiciones para enviar el mensaje.");
-        return;
-      }
+  });
 
-      const btn = document.getElementById('submitBtn');
-      const originalText = btn.textContent;
-      btn.textContent = "Enviando...";
-      btn.disabled = true;
-
-      setTimeout(() => {
-        contactForm.reset();
-        btn.textContent = originalText;
-        btn.disabled = false;
-        modalExito.classList.remove('hidden');   // ← Muestra el modal bonito
-      }, 1200);
-    });
-  }
-
+}
   // Modal Próximo Lanzamiento
   const modalProducto = document.getElementById('modalProducto');
   const cerrarProducto = document.getElementById('cerrarProducto');

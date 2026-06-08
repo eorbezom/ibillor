@@ -20,7 +20,7 @@
       <div class="hidden md:flex items-center gap-9 text-lg font-medium">
         <a href="index.html" class="nav-link">Inicio</a>
         <a href="#sobremi" class="nav-link">Sobre Mí</a>
-        <a href="#cursos" class="nav-link">Cursos</a>
+        <a href="#productos" class="nav-link">Cursos</a>
         <a href="#productos" class="nav-link">Productos</a>        
         <a href="contacto.html" class="nav-link">Contacto</a>
       </div>
@@ -86,7 +86,7 @@
       <!-- Imagen con efecto premium (bordes suaves tipo humo) -->
       <div class="relative">
         <div class="overflow-hidden rounded-[3rem] shadow-2xl border border-zinc-700/50">
-          <img src="img/chu.jpg" 
+          <img src="img/ibillor.jpg" 
                alt="iBillor" 
                class="w-full h-full object-cover transition-all duration-700 hover:scale-105">
         </div>
@@ -105,7 +105,7 @@
 </section>
 
  <!-- Próximamente - Lanzamientos -->
-<section class="py-24 bg-[#111111]">
+<section id="productos" class="py-24 bg-[#111111]">
   <div class="max-w-7xl mx-auto px-6">
     <h2 class="text-5xl font-bold text-center mb-4">Próximos Lanzamientos</h2>
     <p class="text-center text-gray-400 mb-16 text-lg">
@@ -115,7 +115,8 @@
     <div class="grid md:grid-cols-4 gap-6">
       
       <!-- Tarjeta 1 -->
-      <div class="bg-black rounded-3xl overflow-hidden card-hover group">
+      <div class="bg-black rounded-3xl overflow-hidden card-hover group cursor-pointer"
+     onclick="abrirModalProducto()">
         <img src="img/programacion.jpg" class="w-full h-64 object-cover object-top transition-all duration-700 group-hover:scale-105">
         <div class="p-6">
           <h3 class="text-xl font-bold mb-2">Cursos de Programación</h3>
@@ -125,7 +126,8 @@
       </div>
 
       <!-- Tarjeta 2 -->
-      <div class="bg-black rounded-3xl overflow-hidden card-hover group">
+      <div class="bg-black rounded-3xl overflow-hidden card-hover group cursor-pointer"
+     onclick="abrirModalProducto()">
         <img src="img/ropa.jpg" class="w-full h-64 object-cover object-top transition-all duration-700 group-hover:scale-105">
         <div class="p-6">
           <h3 class="text-xl font-bold mb-2">Ropa Deportiva</h3>
@@ -135,7 +137,8 @@
       </div>
 
       <!-- Tarjeta 3 -->
-      <div class="bg-black rounded-3xl overflow-hidden card-hover group">
+      <div class="bg-black rounded-3xl overflow-hidden card-hover group cursor-pointer"
+     onclick="abrirModalProducto()">
         <img src="img/suplemento.jpg" class="w-full h-64 object-cover object-top transition-all duration-700 group-hover:scale-105">
         <div class="p-6">
           <h3 class="text-xl font-bold mb-2">Suplementos</h3>
@@ -145,10 +148,11 @@
       </div>
 
       <!-- Tarjeta 4 -->
-      <div class="bg-black rounded-3xl overflow-hidden card-hover group">
+      <div class="bg-black rounded-3xl overflow-hidden card-hover group cursor-pointer"
+     onclick="abrirModalProducto()">
         <img src="img/barba.jpg" class="w-full h-64 object-cover object-top transition-all duration-700 group-hover:scale-105">
         <div class="p-6">
-          <h3 class="text-xl font-bold mb-2">Gotas para la Barba</h3>
+          <h3 class="text-xl font-bold mb-2">Minoxidil  5%</h3>
           <p class="text-gray-400 text-sm mb-4">Crecimiento, densidad y cuidado premium para tu barba.</p>
           <span class="text-red-500 font-semibold">Próximamente</span>
         </div>
@@ -217,8 +221,34 @@
     </div>
   </div>
 </footer>
-  <!-- Cursos (mantengo el anterior por ahora) -->
-  <!-- ... tu sección de cursos actual ... -->
+  
+<!-- MODAL PRÓXIMO LANZAMIENTO -->
+<div id="modalProducto"
+     class="hidden fixed inset-0 bg-black/80 flex items-center justify-center z-[9999]">
+
+  <div class="bg-zinc-900 rounded-3xl max-w-md w-full mx-4 p-8 text-center border border-red-600">
+
+    <div class="text-6xl mb-4">🚀</div>
+
+    <h2 class="text-3xl font-bold mb-4 text-red-500">
+      Próximo Lanzamiento
+    </h2>
+
+    <p class="text-gray-300 leading-relaxed">
+      Este producto se encuentra actualmente en desarrollo.
+      <br><br>
+      Gracias por tu interés en iBILLOR.
+      <br>
+      Muy pronto estará disponible.
+    </p>
+
+    <button id="cerrarProducto"
+            class="mt-8 bg-red-600 hover:bg-red-700 px-8 py-3 rounded-xl font-semibold transition">
+      Entendido
+    </button>
+
+  </div>
+</div>
 
   <script src="js/script.js"></script>
 </body>

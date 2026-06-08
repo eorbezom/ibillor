@@ -12,11 +12,13 @@ h1, h2, h3 {
 
 /* ==================== HERO BANNER ==================== */
 .hero-bg {
-  background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.88)), 
-              url('../img/campo.jpg') center/cover no-repeat;
-  background-attachment: fixed;
-  height: 100vh;
-  position: relative;
+  background:
+    linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.88)),
+    url('/img/foto-ibi.png');
+
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
 }
 
 @media (max-width: 768px) {

@@ -90,4 +90,29 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 1200);
     });
   }
+
+  // Modal Próximo Lanzamiento
+  const modalProducto = document.getElementById('modalProducto');
+  const cerrarProducto = document.getElementById('cerrarProducto');
+
+  window.abrirModalProducto = function() {
+    if (modalProducto) {
+      modalProducto.classList.remove('hidden');
+    }
+  };
+
+  if (cerrarProducto && modalProducto) {
+    cerrarProducto.addEventListener('click', () => {
+      modalProducto.classList.add('hidden');
+    });
+  }
+
+  if (modalProducto) {
+    modalProducto.addEventListener('click', (e) => {
+      if (e.target === modalProducto) {
+        modalProducto.classList.add('hidden');
+      }
+    });
+  }
 });
+
